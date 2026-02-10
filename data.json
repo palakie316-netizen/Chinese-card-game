@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "PaoHuZi Trainer",
+    "name_cn": "跑胡子",
+    "province": {
+      "en": "Hunan",
+      "cn": "湖南",
+      "pinyin": "Húnán"
+    },
+    "modes": {
+      "beginner": {
+        "en": "Beginner",
+        "cn": "新手",
+        "pinyin": "xīnshǒu",
+        "advanced_rules": false
+      },
+      "advanced": {
+        "en": "Advanced",
+        "cn": "进阶",
+        "pinyin": "jìnjiē",
+        "advanced_rules": true
+      }
+    }
+  },
+  "voice": {
+    "defaultEnabled": true,
+    "defaultPronunciation": "slow",
+    "defaultRate": 1.0,
+    "defaultLanguageStyle": "bilingual",
+    "defaultAutoRead": true
+  },
+  "terms": [
+    {
+      "key": "dealer",
+      "en": "Dealer",
+      "cn": "庄家",
+      "pinyin": "zhuāng jiā",
+      "def": "The starting player. Dealer discards first because they have one extra card."
+    },
+    {
+      "key": "draw",
+      "en": "Draw",
+      "cn": "摸牌",
+      "pinyin": "mō pái",
+      "def": "Take one card from the draw pile."
+    },
+    {
+      "key": "discard",
+      "en": "Discard",
+      "cn": "打牌",
+      "pinyin": "dǎ pái",
+      "def": "Throw one card to the discard pile."
+    },
+    {
+      "key": "chi",
+      "en": "Chi",
+      "cn": "吃",
+      "pinyin": "chī",
+      "def": "Next player may claim a discard to form a sequence (run) or 2-7-10 in the same suit."
+    },
+    {
+      "key": "peng",
+      "en": "Peng",
+      "cn": "碰",
+      "pinyin": "pèng",
+      "def": "Any player may claim a discard if they have 2 matching cards to make a triplet."
+    },
+    {
+      "key": "hu",
+      "en": "Hu",
+      "cn": "胡",
+      "pinyin": "hú",
+      "def": "Win."
+    }
+  ],
+  "tutorial": {
+    "title": "First Practice (Scripted)",
+    "steps": [
+      {
+        "en": "You are Player 1. Tap Draw when it says your turn.",
+        "cn": "轮到你",
+        "pinyin": "lún dào nǐ"
+      },
+      {
+        "en": "After you draw, tap one card, then tap Discard Selected.",
+        "cn": "打牌",
+        "pinyin": "dǎ pái"
+      },
+      {
+        "en": "When an opponent discards, watch for Peng or Chi. The app will tell you if you can claim.",
+        "cn": "碰 或 吃",
+        "pinyin": "pèng huò chī"
+      }
+    ]
+  }
+}
