@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2563eb" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icons/icon-192.png" />
+  <title>PaoHuZi Trainer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1 id="title">PaoHuZi Trainer</h1>
+    <div class="sub" id="subtitle">Loading…</div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="view active" id="homeView">
+      <div class="grid">
+        <div class="card">
+          <div class="row" style="justify-content:space-between;align-items:center;">
+            <div class="pill" id="modePill">Mode: …</div>
+            <div class="pill" id="voicePill">Voice: …</div>
+          </div>
+          <div class="row" style="margin-top:12px;">
+            <button class="primary" id="playBtn">Play Practice Game</button>
+            <button class="primary" id="startLessonBtn">Guided Lessons</button>
+            <button id="glossaryBtn">Glossary</button>
+            <button id="settingsBtn">Settings</button>
+          </div>
+          <div style="margin-top:10px;color:var(--muted);font-size:13px;line-height:1.4;">
+            Tip: On Android Chrome, open this site and use <b>Add to Home screen</b> to install it like an app.
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="font-weight:900;">New: Manual or Bot players</div>
+          <div style="margin-top:8px;color:var(--muted);line-height:1.45;">
+            When you start a practice game, you can set each opponent as a <b>Bot</b> or <b>Manual</b>. Manual mode supports pass-and-play on one phone.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME SETUP -->
+    <section class="view" id="gameSetupView">
+      <div class="card">
+        <div class="spread">
+          <div>
+            <div style="font-weight:900;font-size:16px;">Start Practice Game</div>
+            <div class="sub">Choose players and pick Bot or Manual for each opponent.</div>
+          </div>
+          <button id="backFromGameSetupBtn">Back</button>
+        </div>
+        <hr/>
+        <div class="kv">
+          <div class="k">Players</div>
+          <div>
+            <select id="playersSelect">
+              <option value="2">2 players</option>
+              <option value="3" selected>3 players</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setupList" id="playerTypesWrap"></div>
+
+        <div class="row" style="margin-top:12px;">
+          <button class="primary" id="startGameBtn">Start</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section class="view" id="gameView">
+      <div class="card">
+        <div class="spread">
+          <div>
+            <div style="font-weight:900;font-size:16px;">Practice Game</div>
+            <div class="sub" id="gameInfo">Loading…</div>
+            <div class="sub" id="gamePhase"></div>
+            <div class="sub" id="activePlayer"></div>
+          </div>
+          <button id="exitGameBtn">Exit</button>
+        </div>
+      </div>
+
+      <div style="height:10px;"></div>
+
+      <div class="table">
+        <div class="card">
+          <div class="zoneTitle">Opponents</div>
+          <div class="row" id="opponentsRow"></div>
+        </div>
+
+        <div class="row">
+          <div class="pile">
+            <strong>Draw Pile</strong>
+            <div class="meta"><span id="drawCount">0</span> cards</div>
+            <div style="margin-top:10px;">
+              <button class="primary" id="drawBtn">Draw</button>
+            </div>
+          </div>
+
+          <div class="pile">
+            <strong>Last Discard</strong>
+            <div class="meta">Claim window uses this</div>
+            <div style="margin-top:10px;" id="lastDiscard"></div>
+          </div>
+
+          <div class="pile">
+            <strong>Actions</strong>
+            <div class="meta">For the active manual player</div>
+            <div class="row" style="margin-top:10px;">
+              <button class="danger" id="discardBtn">Discard Selected</button>
+              <button id="checkHuBtn">Check Hu</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="claimPanel" style="display:none;">
+          <div class="zoneTitle" id="claimerLabel">Claim decision</div>
+          <div class="row">
+            <button id="passBtn">Pass</button>
+            <button id="pengBtn">Peng</button>
+            <button id="chiBtn">Chi</button>
+            <select id="chiSelect" style="display:none;"></select>
+          </div>
+          <div class="sub" style="margin-top:8px;">
+            Priority: next player may Chi/Peng. Other players may Peng.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="zoneTitle">Active Player Melds</div>
+          <div class="melds" id="activeMelds"></div>
+        </div>
+
+        <div class="card">
+          <div class="zoneTitle" id="handTitle">Active Hand</div>
+          <div class="hand" id="activeHand"></div>
+        </div>
+
+        <div class="card">
+          <div class="zoneTitle">Log</div>
+          <div class="log" id="logBox"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSON -->
+    <section class="view" id="lessonView">
+      <div class="card">
+        <div class="spread">
+          <div>
+            <div style="font-weight:900;font-size:16px;" id="lessonTitle">Lesson</div>
+            <div class="sub" id="lessonProgress">Step</div>
+          </div>
+          <button id="exitLessonBtn">Exit</button>
+        </div>
+      </div>
+      <div style="height:10px;"></div>
+      <div id="lessonBody"></div>
+      <div class="row" style="margin-top:12px;">
+        <button id="prevStepBtn">Back</button>
+        <button class="primary" id="nextStepBtn">Next</button>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="view" id="settingsView">
+      <div class="card">
+        <div style="font-weight:900;font-size:16px;">Settings</div>
+        <div class="sub">Saved on your device.</div>
+        <hr/>
+        <div class="kv">
+          <div class="k">Mode</div>
+          <div>
+            <select id="modeSelect">
+              <option value="beginner">Beginner / 新手 (xīnshǒu)</option>
+              <option value="advanced">Advanced / 进阶 (jìnjiē)</option>
+            </select>
+          </div>
+
+          <div class="k">Voice</div>
+          <div>
+            <label style="display:flex;gap:10px;align-items:center;">
+              <input type="checkbox" id="voiceToggle" />
+              <span>Voice On</span>
+            </label>
+          </div>
+
+          <div class="k">Auto-read</div>
+          <div>
+            <label style="display:flex;gap:10px;align-items:center;">
+              <input type="checkbox" id="autoReadToggle" />
+              <span>Speak guidance automatically</span>
+            </label>
+          </div>
+
+          <div class="k">Pronunciation</div>
+          <div>
+            <select id="pronSelect">
+              <option value="slow">Slow (with pauses)</option>
+              <option value="normal">Normal</option>
+            </select>
+          </div>
+
+          <div class="k">Rate</div>
+          <div>
+            <select id="rateSelect">
+              <option value="0.8">0.8x</option>
+              <option value="1.0">1.0x</option>
+              <option value="1.2">1.2x</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" style="margin-top:12px;">
+          <button id="testVoiceBtn">Test Voice</button>
+          <button class="primary" id="saveSettingsBtn">Save</button>
+          <button id="backFromSettingsBtn">Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="view" id="glossaryView">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+          <div>
+            <div style="font-weight:900;font-size:16px;">Glossary</div>
+            <div class="sub">Tap 🔊 to hear the term (English + 中文 + pinyin).</div>
+          </div>
+          <button id="backFromGlossaryBtn">Back</button>
+        </div>
+      </div>
+      <div style="height:10px;"></div>
+      <div class="grid" id="termList"></div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+:root{
+  --bg:#f7f7f8;
+  --card:#ffffff;
+  --ink:#111827;
+  --muted:#6b7280;
+  --accent:#2563eb;
+  --good:#16a34a;
+  --bad:#dc2626;
+  --border:#e5e7eb;
+  --radius:16px;
+}
+
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+}
+
+header{
+  position:sticky; top:0;
+  background:rgba(247,247,248,.9);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:14px 14px 10px;
+  z-index:10;
+}
+h1{margin:0; font-size:18px;}
+.sub{margin-top:4px; color:var(--muted); font-size:13px;}
+
+main{padding:14px; max-width:980px; margin:0 auto;}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+}
+
+.grid{display:grid; grid-template-columns:1fr; gap:12px;}
+.row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+.spread{display:flex; justify-content:space-between; gap:10px; align-items:center;}
+
+button, select{
+  appearance:none;
+  border:1px solid var(--border);
+  background:var(--card);
+  padding:12px 14px;
+  border-radius:14px;
+  font-weight:600;
+  font-size:14px;
+}
+button.primary{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:white;
+}
+button.danger{
+  background:var(--bad);
+  border-color:var(--bad);
+  color:white;
+}
+button:disabled{opacity:.55;}
+button:active{transform: translateY(1px);}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--card);
+  font-size:13px;
+  color:var(--muted);
+}
+
+.kv{display:grid; grid-template-columns: 140px 1fr; gap:8px 10px; font-size:14px;}
+.kv .k{color:var(--muted);}
+
+hr{border:none;border-top:1px solid var(--border); margin:12px 0;}
+
+.view{display:none;}
+.view.active{display:block;}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:16px;
+  transform:translateX(-50%);
+  background:rgba(17,24,39,.92);
+  color:white;
+  padding:10px 12px;
+  border-radius:14px;
+  font-size:13px;
+  max-width:min(92vw, 620px);
+  z-index:999;
+  display:none;
+}
+.toast.show{display:block;}
+
+/* --- Game UI --- */
+.table{
+  display:grid;
+  grid-template-rows: auto auto auto auto;
+  gap:10px;
+}
+
+.zoneTitle{font-weight:900; font-size:13px; color:var(--muted); margin-bottom:6px;}
+
+.piles{display:flex; gap:10px; flex-wrap:wrap;}
+.pile{
+  min-width: 120px;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:12px;
+  background:var(--card);
+}
+.pile strong{display:block; font-size:14px;}
+.pile .meta{color:var(--muted); font-size:13px; margin-top:4px;}
+
+.hand{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:6px;
+  -webkit-overflow-scrolling: touch;
+}
+.tile{
+  flex: 0 0 auto;
+  width: 110px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:var(--card);
+  padding:10px 10px 12px;
+  text-align:center;
+  user-select:none;
+}
+.tile.small{background:#ffffff;}
+.tile.big{background:#f5f7ff;}
+.tile .en{font-size:12px; color:var(--muted); font-weight:800;}
+.tile .cn{font-size:30px; font-weight:900; margin-top:6px;}
+.tile .py{font-size:12px; color:var(--muted); margin-top:6px; font-weight:700;}
+.tile.selected{outline:3px solid rgba(37,99,235,.35); border-color:rgba(37,99,235,.65);}
+.tile.playable{outline:3px solid rgba(22,163,74,.35); border-color:rgba(22,163,74,.65);}
+
+.melds{display:flex; gap:10px; flex-wrap:wrap;}
+.meld{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:10px;
+  background:var(--card);
+}
+.meld .label{font-size:12px; color:var(--muted); font-weight:800; margin-bottom:8px;}
+.meld .cards{display:flex; gap:8px; flex-wrap:wrap;}
+.meld .mini{
+  width: 56px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:6px;
+  text-align:center;
+  background:#fff;
+}
+.meld .mini.big{background:#f5f7ff;}
+.meld .mini .cn{font-size:18px;font-weight:900;}
+.meld .mini .en{font-size:10px;color:var(--muted);font-weight:800;}
+
+.log{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.4;
+  max-height: 140px;
+  overflow:auto;
+  background: #fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:10px;
+}
+
+.setupList{display:grid;gap:10px;margin-top:12px;}

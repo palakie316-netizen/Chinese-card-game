@@ -1,0 +1,97 @@
+{
+  "app": {
+    "name": "PaoHuZi Trainer",
+    "name_cn": "跑胡子",
+    "province": {
+      "en": "Hunan",
+      "cn": "湖南",
+      "pinyin": "Húnán"
+    },
+    "modes": {
+      "beginner": {
+        "en": "Beginner",
+        "cn": "新手",
+        "pinyin": "xīnshǒu",
+        "advanced_rules": false
+      },
+      "advanced": {
+        "en": "Advanced",
+        "cn": "进阶",
+        "pinyin": "jìnjiē",
+        "advanced_rules": true
+      }
+    }
+  },
+  "voice": {
+    "defaultEnabled": true,
+    "defaultPronunciation": "slow",
+    "defaultRate": 1.0,
+    "defaultLanguageStyle": "bilingual",
+    "defaultAutoRead": true
+  },
+  "terms": [
+    {
+      "key": "draw",
+      "en": "Draw",
+      "cn": "摸牌",
+      "pinyin": "mō pái",
+      "def": "Take one card from the draw pile."
+    },
+    {
+      "key": "discard",
+      "en": "Discard",
+      "cn": "打牌",
+      "pinyin": "dǎ pái",
+      "def": "Throw one card to the discard pile."
+    },
+    {
+      "key": "chi",
+      "en": "Chi",
+      "cn": "吃",
+      "pinyin": "chī",
+      "def": "Make a sequence using the previous player's discard."
+    },
+    {
+      "key": "peng",
+      "en": "Peng",
+      "cn": "碰",
+      "pinyin": "pèng",
+      "def": "Make three of a kind using a discard."
+    },
+    {
+      "key": "hu",
+      "en": "Hu",
+      "cn": "胡",
+      "pinyin": "hú",
+      "def": "Win."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "L1_Intro",
+      "title": {
+        "en": "Welcome",
+        "cn": "欢迎",
+        "pinyin": "huānyíng"
+      },
+      "steps": [
+        {
+          "say": {
+            "en": "Welcome to Pao Hu Zi",
+            "cn": "跑胡子",
+            "pinyin": "pǎo hú zi",
+            "explain": "Play a practice game with voice guidance. You can set opponents as bots or manual players."
+          }
+        },
+        {
+          "say": {
+            "en": "Turn Flow",
+            "cn": "回合流程",
+            "pinyin": "huí hé liú chéng",
+            "explain": "Dealer discards first. Then each turn is Draw, then Discard. After a discard, the next player may Chi or Peng. Other players may Peng."
+          }
+        }
+      ]
+    }
+  ]
+}
